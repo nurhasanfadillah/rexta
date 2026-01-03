@@ -1,4 +1,3 @@
-
 {
   "short_name": "REXTA",
   "name": "REXTA Inventory Management",
@@ -33,28 +32,14 @@
       "label": "Manajemen Stok Mobile"
     }
   ],
-  "shortcuts": [
-    {
-      "name": "Tambah Stok",
-      "short_name": "Stok",
-      "description": "Catat barang masuk atau keluar",
-      "url": "/?action=stock",
-      "icons": [{ "src": "https://cdn-icons-png.flaticon.com/512/10434/10434252.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "Scan QR",
-      "short_name": "Scan",
-      "description": "Scan QR Code Barang",
-      "url": "/?action=scan",
-      "icons": [{ "src": "https://cdn-icons-png.flaticon.com/512/10434/10434252.png", "sizes": "192x192" }]
-    }
-  ],
-  "id": "/",
-  "start_url": "./index.html",
+  "id": "./",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
   "orientation": "portrait",
-  "theme_color": "#0891b2",
-  "background_color": "#f8fafc",
-  "categories": ["productivity", "business", "finance"]
+  "theme_color": "#020617",
+  "background_color": "#020617",
+  "categories": ["productivity", "business", "finance"],
+  "prefer_related_applications": false
 }
