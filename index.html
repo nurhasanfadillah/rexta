@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id" class="dark">
   <head>
@@ -12,7 +13,7 @@
     <meta name="apple-mobile-web-app-title" content="REXTA">
     
     <!-- PWA Manifest & Icons -->
-    <link rel="manifest" href="/assets/manifest-CGJBkQsj.json" />
+    <link rel="manifest" href="/assets/manifest-BIq3LO3R.json" />
     <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/10434/10434252.png">
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/10434/10434252.png">
 
@@ -49,6 +50,15 @@
               'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
               'glow': '0 4px 20px 0px rgba(8, 145, 178, 0.3)',
               'danger-glow': '0 4px 15px 0px rgba(244, 63, 94, 0.2)',
+            },
+            animation: {
+              'shimmer': 'shimmer 1.5s infinite linear',
+            },
+            keyframes: {
+              shimmer: {
+                '0%': { backgroundPosition: '-1000px 0' },
+                '100%': { backgroundPosition: '1000px 0' },
+              }
             }
           }
         }
@@ -58,36 +68,51 @@
       .no-scrollbar::-webkit-scrollbar { display: none; }
       .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       
-      /* Hide number input spinners (Chrome, Safari, Edge, Opera) */
+      /* Hide number input spinners */
       input::-webkit-outer-spin-button,
       input::-webkit-inner-spin-button {
         -webkit-appearance: none;
         margin: 0;
       }
-      
-      /* Hide number input spinners (Firefox) */
       input[type=number] {
         -moz-appearance: textfield;
       }
       
+      /* NATIVE APP FEEL CSS OVERRIDES */
       body {
-        -webkit-tap-highlight-color: transparent;
+        -webkit-tap-highlight-color: transparent; /* Hilangkan highlight biru saat tap */
+        -webkit-touch-callout: none; /* Hilangkan menu copy/paste iOS saat tahan lama */
+        -webkit-user-select: none; /* Disable text selection global */
+        user-select: none;
         font-family: 'Inter', sans-serif;
-        transition: background-color 0.3s ease, color 0.3s ease;
         overscroll-behavior-y: none; /* Prevent pull-to-refresh on mobile PWA */
+        touch-action: pan-x pan-y;
       }
-      
-      /* Smooth transitions for theme switching */
+
+      /* Izinkan select text hanya pada input */
+      input, textarea {
+        -webkit-user-select: text;
+        user-select: text;
+      }
+
+      /* Mencegah zoom pada input focus di iOS */
+      input, select, textarea {
+        font-size: 16px !important; 
+      }
+
+      /* Smooth transitions */
       * {
-        transition: background-color 0.3s ease, border-color 0.3s ease, color 0.1s ease;
+        transition-property: background-color, border-color, color, transform, opacity;
+        transition-duration: 200ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
       .animate-scan { animation: scan 2s linear infinite; }
-      .focus-ring:focus { outline: none; boxShadow: 0 0 0 3px rgba(8, 145, 178, 0.2); }
       
       /* Safe area padding for notched phones */
       .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+      .pt-safe { padding-top: env(safe-area-inset-top); }
     </style>
 
 <link rel="stylesheet" href="/index.css">
@@ -106,9 +131,9 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/assets/index-BezbWZ8o.js"></script>
+  <script type="module" crossorigin src="/assets/index-DrqxHZU0.js"></script>
 </head>
-  <body class="bg-surface dark:bg-darkSurface text-slate-800 dark:text-slate-100 selection:bg-primary/30">
+  <body class="bg-surface dark:bg-darkSurface text-slate-800 dark:text-slate-100 antialiased selection:bg-primary/30">
     <div id="root"></div>
 </body>
 </html>
